@@ -38,6 +38,7 @@ public class OrderPaymentsService {
      */
     public String getPaymentApprovalFromPaymentService(String orderId, String ordersPaymentsApprovalBaseUrl) {
         logger.info("Inside getPaymentApprovalFromPaymentService,  getting payment approval for orderId: {}", orderId);
+        //I am just calling the current web app itself, but inn the real world this would be a call to another micro service
         String result = restTemplate.getForObject(ordersPaymentsApprovalBaseUrl + "/{orderId}", String.class, orderId);
         return result;
     }

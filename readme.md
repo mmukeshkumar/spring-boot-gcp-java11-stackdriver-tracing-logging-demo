@@ -1,7 +1,7 @@
 # Description:
-Demo Java 11 maven project showcasing Spring boot, Spring cloud GCP, GAE Standard, its deployable to gae-standard
+Demo Java 11 maven project showcasing Spring boot, Spring cloud GCP, Spanner, Stackdriver, its deployable to gae-standard
 It demos distributed tracing, co-relating logs in cases where one request spawns multiple requests across multiple micro services
-It also demos integration with GCP Spanner DB suing Spring cloud GCP APIs
+It also demos integration with GCP Spanner DB using Spring cloud GCP APIs
 
 # Prerequisites 
 1. Install Java 11 JDK
