@@ -48,6 +48,7 @@ alt-svc: quic=":443"; ma=2592000; v="46,43,39"
 
 9b2c6a02-119d-4f1a-b781-de6ccad32689
 
+Advanced search entry in stackdriver logviewer
 (trace="projects/spring-boot-gcp-demo-251616/traces/46dc8f6388fadba0d182970fbf88d792")
 
 # force a trace Id:
@@ -56,6 +57,7 @@ curl -i -XPOST \
 -H "X-Cloud-Trace-Context: 105445aa7843bc8bf206b120001000" \
 -d '{"firstName":"My","lastName":"Nyugen","customerId":"53a2e698-0205-4546-aae6-8fc903c478c7","orderDate":"2019-10-10T18:06:48.526+0000"}' \
 https://spring-boot-gcp-demo-251616.appspot.com/orders
+Note: This wont work for some reason, the passed in X-Cloud-Trace-Context does not get used
 
 
 
