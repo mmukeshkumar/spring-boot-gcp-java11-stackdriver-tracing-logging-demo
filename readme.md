@@ -11,11 +11,11 @@ It also demos integration with GCP Spanner DB using Spring cloud GCP APIs
 # Building
 ./mvnw clean install
 
-# Running: 
+# Running locally: 
 java -jar target/spring-boot-gcp-java11-stackdriver-tracing-logging-demo-0.0.1-SNAPSHOT.jar
 OR import project into Intellij IDE and run the GcpDemoApplication as a Java application
 
-# Test:
+# Testing locally:
 List REST endpoints
 curl -i http://localhost:8080
 List orders
@@ -57,7 +57,13 @@ curl -i -XPOST \
 -H "X-Cloud-Trace-Context: 105445aa7843bc8bf206b120001000" \
 -d '{"firstName":"My","lastName":"Nyugen","customerId":"53a2e698-0205-4546-aae6-8fc903c478c7","orderDate":"2019-10-10T18:06:48.526+0000"}' \
 https://spring-boot-gcp-demo-251616.appspot.com/orders
-Note: This wont work for some reason, the passed in X-Cloud-Trace-Context does not get used
+##  Note: This wont work for some reason, the passed in X-Cloud-Trace-Context does not get used
+
+
+# Issues/todas
+ * force a trace Id wont work, the passed in X-Cloud-Trace-Context does not get used, instead a new X-Cloud-Trace-Context gets used and returned
+ * when deployed to app engine standard, its takes upto 30 seconds to start an instances since all instances get shutdown when no requests come in
+   for certain period of time
 
 
 

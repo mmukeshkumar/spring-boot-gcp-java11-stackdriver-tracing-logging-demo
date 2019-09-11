@@ -47,6 +47,7 @@ public class GcpSpannerStackdriverDemoApplication implements WebMvcConfigurer {
 
     @Component
 // This will run on application startup
+// for setting up some data on startup
     class SpannerOrdersRunner implements ApplicationRunner {
 
         private final OrderService orderService;

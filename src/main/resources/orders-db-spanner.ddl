@@ -5,4 +5,4 @@ CREATE TABLE Orders (
 	last_name STRING(128) NOT NULL,
 	order_date DATE NOT NULL
 ) PRIMARY KEY (order_id);
-CREATE INDEX OrdersByCustomerId ON orders(customer_id);
+CREATE INDEX OrdersByCustomerId ON Orders(customer_id);

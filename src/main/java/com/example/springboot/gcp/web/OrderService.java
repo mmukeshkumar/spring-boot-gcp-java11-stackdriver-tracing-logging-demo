@@ -21,14 +21,15 @@ public class OrderService {
     static private final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     private final OrderRepository orderRepository;
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
     private final String ordersPaymentsApprovalBaseUrl;
     private final OrderPaymentsService orderPaymentsService;
 
-    public OrderService(OrderRepository orderRepository, @Value("${retailapi.ordersPaymentsApprovalBaseUrl}") String ordersPaymentsApprovalBaseUrl,  OrderPaymentsService orderPaymentsService) {
+    public OrderService(OrderRepository orderRepository, @Value("${retailapi.ordersPaymentsApprovalBaseUrl}") String ordersPaymentsApprovalBaseUrl, OrderPaymentsService orderPaymentsService, RestTemplate restTemplate) {
         this.orderRepository = orderRepository;
         this.ordersPaymentsApprovalBaseUrl = ordersPaymentsApprovalBaseUrl;
         this.orderPaymentsService = orderPaymentsService;
+        this.restTemplate = restTemplate;
     }
 
     /**
@@ -58,11 +59,6 @@ public class OrderService {
         return orderRepository.findById(orderId).get();
     }
 
-
-
-
-
-
     /**
      * Delete an Order
      */
@@ -80,15 +76,15 @@ public class OrderService {
     @DeleteMapping(value = "/all")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAllOrders() {
-            logger.info("Deleting all order: {}");
-            orderRepository.deleteAll();
+        logger.info("Deleting all order: {}");
+        orderRepository.deleteAll();
     }
 
     /**
      * Read List of Orders
      */
     @GetMapping
-    public Iterable<Order> findAll() {
+    public Iterable<Order> getAllOrders() {
         logger.info("Listing all orders");
         return orderRepository.findAll();
     }
